@@ -1,0 +1,10 @@
+{
+	"Interval":2,
+	"Timeout":15,
+	"mysqlparams": "root:fj37fj0aj@tcp(localhost:33666)/pdns?charset=utf8",
+	"smtphost":"smtp.gmail.com",
+	"smtpuser":"info@rashost.com",
+	"smtppass":"93jfu763",
+	"sender":"info@rashost.com",
+	"smtpport":587
+}
