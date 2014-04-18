@@ -1,4 +1,5 @@
 {
+	"EmailPrefix":"NewAA",
 	"Interval":2,
 	"Timeout":15,
 	"mysqlparams": "root:fj37fj0aj@tcp(localhost:33666)/pdns?charset=utf8",

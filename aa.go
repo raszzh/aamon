@@ -22,6 +22,7 @@ type Configuration struct {
 	Smtpport uint
 	Timeout uint
 	Interval uint
+	EmailPrefix string
 }
 
 
@@ -53,8 +54,9 @@ Hello,
 
 Regards,
 `
-	subject:=fmt.Sprintf("IP %s fails from %s to %s",ip,from,to)
-	body:=fmt.Sprintf(template,conf.Sender,"rashost@qq.com",subject,subject)
+	subject:=fmt.Sprintf("%s IP %s fails %s",conf.EmailPrefix,ip,from)
+	content:=fmt.Sprintf("%s IP %s fails from %s to %s",conf.EmailPrefix,ip,from,to)
+	body:=fmt.Sprintf(template,conf.Sender,"rashost@qq.com",subject,content)
 	auth:=smtp.PlainAuth("",conf.Smtpuser,conf.Smtppass,conf.Smtphost)
 	smtp.SendMail(fmt.Sprintf("%s:%d",conf.Smtphost,conf.Smtpport),auth,conf.Sender,tolist,[]byte(body))
 }
