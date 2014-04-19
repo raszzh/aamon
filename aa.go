@@ -62,10 +62,6 @@ Regards,
 }
 
 func bbcheck(ip string) {
-	_,ok:=bbstatus[ip]
-	if !ok {
-		bbstatus[ip]=time.Time{}
-	}
 	good:=checkstatus(ip)
 	log.Println(ip,good)
 	if good {
@@ -76,7 +72,7 @@ func bbcheck(ip string) {
 		sendmail(ip,time.Now().String(),bbstatus[ip].String())
 		bbstatus[ip]=time.Now()
 	}else {
-			//
+		// nothing to do
 	}
 
 	
